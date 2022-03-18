@@ -3,9 +3,9 @@
 
 FROM maven:3.6-jdk-11-slim AS build-servlets
  
-ARG SCM="scm:git:ssh://git@github.com:masumcse1/cartweb.git"
+ARG SCM="scm:git:ssh://git@github.com:masumcse1/cartweb1.git"
 
-WORKDIR /usr/src/catweb
+WORKDIR /usr/src/catweb1
 
 COPY . .
 
@@ -49,7 +49,9 @@ RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
 
 WORKDIR /opt/tomcat/webapps
 
-COPY  --from=build-servlets /usr/src/catweb/target/cartweb-0.0.1-SNAPSHOT.war CatWeb.war
+COPY  --from=build-servlets /usr/src/cartweb1\mywbss\target\mywbss-0.0.1-SNAPSHOT.war  mywbss.war
+
+                                  
 
 EXPOSE 8080
 WORKDIR /opt/tomcat/bin/
