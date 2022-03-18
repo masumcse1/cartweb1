@@ -5,7 +5,7 @@ FROM maven:3.6-jdk-11-slim AS build-servlets
  
 ARG SCM="scm:git:ssh://git@github.com:masumcse1/cartweb1.git"
 
-WORKDIR /usr/src/catweb1
+WORKDIR /usr/src/cartweb1
 
 COPY . .
 
