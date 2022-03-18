@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>abc.ass</groupId>
-    <artifactId>cartweb</artifactId>
+    <artifactId>cartweb1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>mycore</artifactId>
