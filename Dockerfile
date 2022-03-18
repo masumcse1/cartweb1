@@ -2,6 +2,11 @@
 
 
 FROM maven:3.6-jdk-11-slim AS build-servlets
+
+# Install git packages necessary
+
+RUN apt-get -y update
+RUN apt-get -y install git
  
 ARG SCM="scm:git:ssh://git@github.com:masumcse1/cartweb1.git"
 
