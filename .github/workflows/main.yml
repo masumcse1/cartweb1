@@ -51,7 +51,7 @@ jobs:
            context: .
            file: ./Dockerfile
            push: true
-           tags: ${{ secrets.DOCKER_USERNAME }}/abc:${{github.ref_name}}
+           tags: ${{ secrets.DOCKER_USERNAME }}/cartweb:${{github.ref_name}}
            
       - name: show Docker image
         run: docker images
