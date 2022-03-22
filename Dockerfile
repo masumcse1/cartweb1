@@ -54,9 +54,11 @@ RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
 
 WORKDIR /opt/tomcat/webapps
 
-COPY  --from=build-servlets /usr/src/cartweb1/mywbss/target/mywbss-0.0.1-SNAPSHOT.war  mywbss.war
+#COPY  --from=build-servlets /usr/src/cartweb1/mywbss/target/mywbss-0.0.1-SNAPSHOT.war  mywbss.war
 
-                                  
+COPY  --from=build-servlets /usr/src/cartweb1/cartadmin/mywbss/target/mywbss-0.0.1-SNAPSHOT.war   mywbss.war
+
+#\cartweb1\cartadmin\mywbss\target\mywbss-0.0.1-SNAPSHOT.war                                  
 
 EXPOSE 8080
 WORKDIR /opt/tomcat/bin/
