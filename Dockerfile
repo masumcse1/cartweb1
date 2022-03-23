@@ -14,7 +14,8 @@ WORKDIR /usr/src/cartweb1
 
 COPY . .
 
-RUN mvn clean package -Dscm.url=${SCM} -DskipTests
+
+RUN mvn clean package -Dscm.url=${SCM} -DskipTests -DbuildNumber=BUILD_NUMBER
 
 ####################################
 
