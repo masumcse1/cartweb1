@@ -16,6 +16,31 @@
 	</modules>
 
 
+<properties>
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- JDK Version -->
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+
+		<!-- jakartaee Version -->
+		<jakartaee-api.version>8.0.0</jakartaee-api.version>
+
+		<!-- Web Xml Availability Check -->
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+
+		<hibernate-envers-version>5.2.3.Final</hibernate-envers-version>
+		<hibernate-validator-version>5.2.4.Final</hibernate-validator-version>
+
+		<!-- plugin versions -->
+		<compiler-plugin-version>3.8.1</compiler-plugin-version>
+		<surefire-plugin-version>2.17</surefire-plugin-version>
+		<maven-dependency-plugin-version>3.2.0</maven-dependency-plugin-version>
+
+
+	</properties>
+
 
 
 	<dependencyManagement>
@@ -34,6 +59,12 @@
 				<artifactId>primefaces</artifactId>
 				<version>7.0</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.10</version>
+			</dependency>
 
 
 			<dependency>
@@ -44,6 +75,52 @@
 
 		</dependencies>
 	</dependencyManagement>
+	
+	
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+
+				<!-- compiler plugin -->
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${compiler-plugin-version}</version>
+					<configuration>
+						<compilerArgs>
+							<arg>-Xlint:unchecked</arg>
+						</compilerArgs>
+						<source>11</source>
+						<target>11</target>
+						<useIncrementalCompilation>false</useIncrementalCompilation>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.6</version>
+
+				</plugin>
+
+				<!-- Test ! -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${surefire-plugin-version}</version>
+					<configuration>
+						<skipTests>false</skipTests>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven-dependency-plugin-version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 
 </project>
